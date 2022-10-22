@@ -14,7 +14,11 @@ type SingleAnswer string
 type MultipleAnswer []string
 
 type IAnswer interface {
-	SingleAnswer | MultipleAnswer | ContactForm | Address
+	SingleAnswer | MultipleAnswer | ICustom
+}
+
+type ICustom interface {
+	ContactForm | Address
 }
 
 type Qna[ans IAnswer] struct {
